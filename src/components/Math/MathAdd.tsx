@@ -33,7 +33,7 @@ export default function MathAdd () {
       <section className="flex flex-col gap-4 pt-8 space-y-4">
         <div className="flex flex-wrap items-center gap-3">
           <input
-            className='flex h-16 w-24 sm:w-36 px-2 py-4 text-md rounded-md'
+            className='flex h-16 w-24 sm:w-36 px-2 py-4 text-md rounded-md text-black'
             name="firstNumber"
             onChange={(e) => setFirstNumber(e.target.value)}
             placeholder='first number'
@@ -43,7 +43,7 @@ export default function MathAdd () {
           <span className='text-xl font-bold'>+</span>
 
           <input
-            className='flex h-16 w-24 sm:w-36 p-4 text-md rounded-md'
+            className='flex h-16 w-24 sm:w-36 px-2 py-4 text-md rounded-md text-black'
             name="secondNumber"
             onChange={(e) => setSecondNumber(e.target.value)}
             placeholder='second number'
