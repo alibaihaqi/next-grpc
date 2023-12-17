@@ -1,0 +1,46 @@
+syntax = "proto3";
+package proto.math.v1;
+
+option go_package = "proto/math/v1";
+
+message AddRequest {
+  int32 first_number = 1;
+  int32 second_number = 2;
+}
+
+message AddResponse {
+  int32 result = 1;
+}
+
+enum SineCosineEnum {
+  SINE = 0;
+  COSINE = 1;
+}
+
+message SinCosRequest {
+  SineCosineEnum method = 1;
+}
+
+message SinCosResponse {
+  int32 degree = 1;
+  float value = 2;
+}
+
+message TotalNumberRequest {
+  int32 number = 1;
+}
+
+message TotalNumberResponse {
+  int32 result_number = 1;
+}
+
+service MathService {
+  // Unary RPC
+  rpc Add (AddRequest) returns (AddResponse) {};
+
+  // Server Stream RPC
+  rpc SinCos (SinCosRequest) returns (stream SinCosResponse) {};
+
+  // Client Stream RPC
+  rpc TotalNumber (stream TotalNumberRequest) returns (TotalNumberResponse) {};
+}
