@@ -39,9 +39,10 @@ export default function MathSinCos () {
   const onClickGetDataHandler = async () => {
     setSinCosData([])
     setIsStreamDataOnProcess(true)
-    const client = new MathServiceClient(process.env.NEXT_PUBLIC_API_DOMAIN as string, null, {})
-    const sinCosRequest = new SinCosRequest()
 
+    const client = new MathServiceClient(process.env.NEXT_PUBLIC_API_DOMAIN as string, null, {})
+
+    const sinCosRequest = new SinCosRequest()
     sinCosRequest.setMethod(sinCosMethod)
 
     try {
@@ -52,6 +53,12 @@ export default function MathSinCos () {
           degrees: data.getDegree(),
           value: data.getValue(),
         }])
+      })
+
+      stream.on('error', (error) => {
+        console.log(error.code)
+        console.log(error.message)
+        console.log(error.name)
       })
 
       stream.on('end', () => {
