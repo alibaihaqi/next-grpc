@@ -6,7 +6,6 @@ const SERVICES = [
     routes: [
       { name: 'Math (Unary RPC): Add', link: '/math' },
       { name: 'Math (Server Stream RPC): SinCos', link: '/math/sincos' },
-      { name: 'Math (Client Stream RPC): Total Number', link: '/math/total-number' },
     ]
   }
 ]
